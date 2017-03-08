@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="CarouselViewDemo.HomePage">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			<cv:CarouselView x:Name="carouseView" 
+				ItemsSource="{Binding Datamodels}"
+				HeightRequest="200" ItemSelected="CarouseItemSelected">
+				<cv:CarouselView.ItemTemplate>
+					<DataTemplate>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Image Grid.RowSpan="2" 
+									Aspect="AspectFill" 
+									Source="{Binding ImageUrl}" />
+							<StackLayout Grid.Row="1" 
+								BackgroundColor="#80000000" 
+								Padding="12">
+								<Label 
+									TextColor="White" 
+									Text="{Binding Name}" 
+									FontSize="16" 
+									HorizontalOptions="Center" 
+									VerticalOptions="CenterAndExpand" />
+							</StackLayout>
+						</Grid>
+					</DataTemplate>
+				</cv:CarouselView.ItemTemplate>
+			</cv:CarouselView>
+			<Label Text="{Binding str}" x:Name="lbl">
+			</Label>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
